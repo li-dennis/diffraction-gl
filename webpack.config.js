@@ -25,6 +25,12 @@ const config = {
         exclude: /node_modules/,
       },
       {
+        test: /\.glsl$/,
+        loader: 'webpack-glsl',
+        include: path.resolve(__dirname, "src"),
+        exclude: /node_modules/,
+      },
+      {
         enforce: 'pre',
         test: /\.js$/,
         loader: 'source-map-loader'
@@ -59,7 +65,7 @@ const config = {
     ]
   },
   resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.json', '.styl', '.css', '.json.js'],
+    extensions: ['.ts', '.tsx', '.js', '.json', '.styl', '.css', '.json.js'],
   },
   plugins: [
     new webpack.WatchIgnorePlugin([
