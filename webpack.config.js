@@ -13,20 +13,19 @@ const config = {
   devtool: 'source-map',
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    compress: true,
     port: 9000
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loaders: ['awesome-typescript-loader'],
+        test: /\.glsl$/,
+        loader: 'webpack-glsl-loader',
         include: path.resolve(__dirname, "src"),
         exclude: /node_modules/,
       },
       {
-        test: /\.glsl$/,
-        loader: 'webpack-glsl',
+        test: /\.tsx?$/,
+        loaders: ['awesome-typescript-loader'],
         include: path.resolve(__dirname, "src"),
         exclude: /node_modules/,
       },
